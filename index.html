@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090b12" />
+  <meta name="description" content="Discover and download Android applications." />
+  <title>My APK Store</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="./"><span class="brand-mark">A</span><span>APK<span class="accent">STORE</span></span></a>
+    <div class="top-actions">
+      <button id="admin-open" class="button button-quiet" type="button">Admin</button>
+      <button id="sign-out" class="button button-quiet hidden" type="button">Sign out</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow"><span class="live-dot"></span> YOUR APP LIBRARY</div>
+      <h1>Apps worth<br /><span class="gradient-text">downloading.</span></h1>
+      <p class="hero-copy">A simple home for your Android apps. Browse the collection and download the latest APK versions.</p>
+      <div class="hero-stats"><div><strong id="app-count">0</strong><span>APPS</span></div><div><strong>Android</strong><span>PLATFORM</span></div><div><strong>Free</strong><span>TO BROWSE</span></div></div>
+    </section>
+
+    <section class="library-section">
+      <div class="section-heading"><div><p class="eyebrow">THE COLLECTION</p><h2>Available apps</h2></div><span id="library-status" class="status-text">Connecting…</span></div>
+      <div id="notice" class="notice hidden" role="status"></div>
+      <div id="app-grid" class="app-grid"><div class="empty-state"><div class="loader"></div><p>Loading apps…</p></div></div>
+    </section>
+
+    <section id="admin-panel" class="admin-panel hidden">
+      <div class="section-heading"><div><p class="eyebrow">RESTRICTED AREA</p><h2>Manage apps</h2></div><span class="admin-badge">ADMIN</span></div>
+      <form id="upload-form" class="upload-form">
+        <div class="form-grid">
+          <label>App name<input id="app-name" name="name" required maxlength="80" placeholder="e.g. VALMA" /></label>
+          <label>Version<input id="app-version" name="version" required maxlength="30" placeholder="e.g. 1.0.0" /></label>
+          <label class="full-width">Short description<textarea id="app-description" name="description" required maxlength="500" rows="3" placeholder="What does this app do?"></textarea></label>
+          <label class="full-width">App icon (optional, PNG/JPG/WebP)<input id="app-icon" name="icon" type="file" accept="image/png,image/jpeg,image/webp" /></label>
+          <label class="full-width">APK file (maximum 50 MB)<input id="apk-file" name="apk" type="file" accept=".apk,application/vnd.android.package-archive" required /></label>
+        </div>
+        <button id="upload-button" class="button button-primary" type="submit">Upload app</button>
+        <p class="form-help">Upload only APKs you own or are authorized to distribute. Keep each file under the current Supabase Free Plan limit.</p>
+      </form>
+      <div class="manage-list-wrap"><h3>Your published apps</h3><div id="manage-list" class="manage-list"><p class="muted">No apps loaded.</p></div></div>
+    </section>
+  </main>
+
+  <footer><span>APKSTORE</span><span>Download responsibly. Install only apps you trust.</span></footer>
+
+  <dialog id="login-dialog" class="login-dialog">
+    <form id="login-form" class="login-card">
+      <button id="login-close" class="dialog-close" type="button" aria-label="Close">×</button>
+      <p class="eyebrow">ADMIN ACCESS</p><h2>Welcome back.</h2><p class="muted">Sign in with the administrator account created in Supabase.</p>
+      <label>Email<input id="login-email" type="email" autocomplete="username" required placeholder="admin@example.com" /></label>
+      <label>Password<input id="login-password" type="password" autocomplete="current-password" required placeholder="Your password" /></label>
+      <button id="login-button" class="button button-primary full-width" type="submit">Sign in</button>
+      <p id="login-error" class="error-text" aria-live="polite"></p>
+    </form>
+  </dialog>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
